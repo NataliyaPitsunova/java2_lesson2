@@ -27,23 +27,21 @@ public class Main {
                 {"15", "16", "17", "18"}
         };
 
-        try {
-            System.out.println("Сумма элементов массива равна " + arraysExceptionAndSumm(arrays1));
-        } catch (MyArraySizeException | MyArrayDataException e) {
-            System.out.println(e);
-        }
-
-        try {
-            System.out.println("Сумма элементов массива равна " + arraysExceptionAndSumm(arrays2));
-        } catch (MyArraySizeException | MyArrayDataException e) {
-            System.out.println(e);
-        }
-        try {
-            System.out.println("Сумма элементов массива равна " + arraysExceptionAndSumm(arrays3));
-        } catch (MyArraySizeException | MyArrayDataException e) {
-            System.out.println(e);
+   ArrayList<String[][]> arrays = new ArrayList<String[][]>();
+        arrays.add(arrays1);
+        arrays.add(arrays2);
+        arrays.add(arrays3);
+        
+        for (String[][] a : arrays) {
+            try {
+                System.out.println("Сумма элементов массива равна " + arraysExceptionAndSumm(a));
+            } catch (MyArraySizeException | MyArrayDataException e) {
+                System.out.println(e);
+            }
         }
     }
+    
+    
 //метод
     private static int arraysExceptionAndSumm(String[][] inArr) throws MyArraySizeException, MyArrayDataException {
         int size = 4; //проверяемая размерность
